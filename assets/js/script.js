@@ -202,7 +202,7 @@ function loadMap() {
 	if (!mapContainer || mapContainer.querySelector("iframe")) return; // Jangan muat ulang jika sudah ada
 
 	const mapIframe = document.createElement("iframe");
-	mapIframe.src = "https://www.google.com/maps?q=Bayung+Lencir+South+Sumatra&output=embed";
+	mapIframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.82800845161!2d106.86333518222808!3d-6.23642345002771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f30cd420b7a7%3A0xf3685407410d2862!2sCipinang%20Cempedak%2C%20Jatinegara%2C%20East%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1776245568189!5m2!1sen!2sid";
 	mapIframe.width = "100%";
 	mapIframe.height = "100%";
 	mapIframe.style.border = "0";
