@@ -1,20 +1,14 @@
-/*=========================================================================*\
- Navigasi  di refresh tetap berada di class active sesuai hastagnya #...
-\*=========================================================================*/
-
 document.addEventListener("DOMContentLoaded", () => {
 	function navigateToSection() {
-		var hash = window.location.hash.substr(1); // Mengambil nilai hash tanpa '#'
+		var hash = window.location.hash.substr(1);
 
-		// Menghilangkan class 'active' dari semua bagian
 		document.querySelectorAll("[data-page]").forEach((section) => {
 			section.classList.remove("active");
 		});
 
-		// Jika tidak ada hash, gunakan default 'about' sebagai hash
 		if (!hash) {
-			hash = "about"; // Default ke 'about' jika tidak ada hash
-			window.location.hash = "#" + hash; // Opsional: Tambahkan #about ke URL
+			hash = "about";
+			window.location.hash = "#" + hash;
 		}
 
 		var targetSection = document.querySelector('[data-page="' + hash + '"]');
@@ -22,10 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			targetSection.classList.add("active");
 		}
 
-		// Menyesuaikan navigasi berdasarkan hash
 		document.querySelectorAll(".navbar-link").forEach((link) => {
 			if (link.getAttribute("href") === "#" + hash) {
-				// Menambahkan class 'active' pada link navigasi yang sesuai
 				document
 					.querySelectorAll(".navbar-link")
 					.forEach((link) => link.classList.remove("active"));
@@ -33,67 +25,48 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 
-		// Memuat peta jika di halaman kontak
 		if (hash === "contact") {
 			loadMap();
 		}
 	}
 
-	// Menangani perubahan hash
 	window.addEventListener("hashchange", navigateToSection);
 
-	// Panggil fungsi saat halaman dimuat
 	navigateToSection();
 });
 
-/*======================*\
-  #End Navigasi Active
-\*======================*/
-
-// element toggle function
 const elementToggleFunc = (elem) => {
 	elem.classList.toggle("active");
 };
 
-// sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
-// sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", () => {
 	elementToggleFunc(sidebar);
 });
 
-// testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
 const modalContainer = document.querySelector("[data-modal-container]");
 const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
 
-// Seleksi elemen sertifikat
 document.querySelectorAll(".project-item").forEach((item) => {
 	item.addEventListener("click", function () {
-		// Mendapatkan data dari item yang diklik
 		const imgSrc = this.querySelector("img").src;
 		const title = this.querySelector(".project-title").textContent;
 		const category = this.querySelector(".project-category").textContent;
 
-		// Menetapkan data ke modal
 		document.getElementById("modalImg").src = imgSrc;
 		document.getElementById("modalTitle").textContent = title;
 		document.getElementById("modalCategory").textContent = category;
-
-		// Menampilkan modal
 		document.getElementById("certificateModal").style.display = "block";
 	});
 });
 
-// Ketika pengguna mengklik tombol close (x), tutup modal
 document.querySelector(".close-button").addEventListener("click", () => {
 	document.getElementById("certificateModal").style.display = "none";
 });
-
-// Juga bisa menambahkan fungsi untuk menutup modal jika pengguna mengklik di luar konten modal
 window.onclick = (event) => {
 	const modal = document.getElementById("certificateModal");
 	if (event.target == modal) {
@@ -101,12 +74,10 @@ window.onclick = (event) => {
 	}
 };
 
-// modal variable
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
 
-// custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
@@ -116,7 +87,6 @@ select.addEventListener("click", function () {
 	elementToggleFunc(this);
 });
 
-// add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
 	selectItems[i].addEventListener("click", function () {
 		const selectedValue = this.innerText.toLowerCase();
@@ -126,7 +96,6 @@ for (let i = 0; i < selectItems.length; i++) {
 	});
 }
 
-// filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = (selectedValue) => {
@@ -141,7 +110,6 @@ const filterFunc = (selectedValue) => {
 	}
 };
 
-// add event in all filter button items for large screen
 let lastClickedBtn = filterBtn[0];
 
 for (let i = 0; i < filterBtn.length; i++) {
@@ -156,12 +124,9 @@ for (let i = 0; i < filterBtn.length; i++) {
 	});
 }
 
-// contact form variables
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
 	formInputs[i].addEventListener("input", () => {
 		// check form validation
@@ -173,11 +138,9 @@ for (let i = 0; i < formInputs.length; i++) {
 	});
 }
 
-// page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
 	navigationLinks[i].addEventListener("click", function () {
 		for (let i = 0; i < pages.length; i++) {
@@ -193,13 +156,9 @@ for (let i = 0; i < navigationLinks.length; i++) {
 	});
 }
 
-/*==========================*\
-    #Halaman Kontak (Peta)
-\*==========================*/
-// Fungsi untuk memuat peta
 function loadMap() {
 	const mapContainer = document.getElementById("map-container");
-	if (!mapContainer || mapContainer.querySelector("iframe")) return; // Jangan muat ulang jika sudah ada
+	if (!mapContainer || mapContainer.querySelector("iframe")) return;
 
 	const mapIframe = document.createElement("iframe");
 	mapIframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.82800845161!2d106.86333518222808!3d-6.23642345002771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f30cd420b7a7%3A0xf3685407410d2862!2sCipinang%20Cempedak%2C%20Jatinegara%2C%20East%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1776245568189!5m2!1sen!2sid";
@@ -212,11 +171,10 @@ function loadMap() {
 	mapContainer.appendChild(mapIframe);
 }
 
-// Tambahkan listener untuk klik pada menu navigasi (jika belum sinkron dengan hash)
 document.querySelectorAll("[data-nav-link]").forEach(link => {
     link.addEventListener("click", function() {
         if (this.textContent.toLowerCase().includes("contact")) {
-            setTimeout(loadMap, 100); // Beri sedikit delay agar transisi selesai
+            setTimeout(loadMap, 100); 
         }
     });
 });

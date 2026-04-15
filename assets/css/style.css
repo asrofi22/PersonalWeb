@@ -1702,40 +1702,34 @@ textarea.form-input::-webkit-resizer {
   }
 
   .clients-item {
-    flex: 0 0 20%; /* Mengubah lebar item menjadi 20% */
+    flex: 0 0 20%;
     max-width: 20%;
-    padding: 2px; /* Mengurangi padding item menjadi 2px */
+    padding: 2px;
     scroll-snap-align: center;
   }
 
   .clients-item svg {
-    width: 60px; /* Mengurangi ukuran ikon menjadi 40px */
+    width: 60px;
     height: 60px;
   }
 }
 
 @media (min-width: 350px) and (max-width: 449px){
   .clients-item {
-    flex: 0 0 20%; /* Mengubah lebar item menjadi 20% */
+    flex: 0 0 20%;
     max-width: 20%;
-    padding: 2px; /* Mengurangi padding item menjadi 2px */
+    padding: 2px;
     scroll-snap-align: center;
   }
   
   
 }
-/**
- * responsive larger than 450px screen
- */
 
 @media (min-width: 450px) {
-  /**
-   * client
-   */
    .clients-item {
-    flex: 0 0 20%; /* Mengubah lebar item menjadi 20% */
+    flex: 0 0 20%;
     max-width: 20%;
-    padding: 2px; /* Mengurangi padding item menjadi 2px */
+    padding: 2px;
     scroll-snap-align: center;
   }
 
@@ -1744,30 +1738,14 @@ textarea.form-input::-webkit-resizer {
     min-width: calc(33.33% - 10px);
   }
 
-  /**
-   * #PORTFOLIO, BLOG 
-   */
-
   .project-img,
   .blog-banner-box {
     height: auto;
   }
 }
 
-/**
- * responsive larger than 580px screen
- */
-
 @media (min-width: 580px) {
-  /**
-   * CUSTOM PROPERTY
-   */
-
   :root {
-    /**
-     * typography
-     */
-
     --fs-1: 32px;
     --fs-2: 24px;
     --fs-3: 26px;
@@ -1776,10 +1754,6 @@ textarea.form-input::-webkit-resizer {
     --fs-7: 15px;
     --fs-8: 12px;
   }
-
-  /**
-   * #REUSED STYLE
-   */
 
   .sidebar,
   article {
@@ -1805,18 +1779,10 @@ textarea.form-input::-webkit-resizer {
     font-size: 18px;
   }
 
-  /**
-   * #MAIN
-   */
-
   main {
     margin-top: 60px;
     margin-bottom: 100px;
   }
-
-  /**
-   * #SIDEBAR
-   */
 
   .sidebar {
     max-height: 180px;
@@ -1875,10 +1841,6 @@ textarea.form-input::-webkit-resizer {
     width: calc(100% - 64px);
   }
 
-  /**
-   * #NAVBAR
-   */
-
   .navbar {
     border-radius: 20px 20px 0 0;
   }
@@ -1892,10 +1854,6 @@ textarea.form-input::-webkit-resizer {
     --fs-8: 14px;
   }
 
-  /**
-   * #ABOUT
-   */
-
   .about .article-title {
     margin-bottom: 20px;
   }
@@ -1903,8 +1861,6 @@ textarea.form-input::-webkit-resizer {
   .about-text {
     margin-bottom: 40px;
   }
-
-  /* service */
 
   .service-item {
     display: flex;
@@ -1922,8 +1878,6 @@ textarea.form-input::-webkit-resizer {
   .service-content-box {
     text-align: left;
   }
-
-  /* testimonials */
 
   .testimonials-title {
     margin-bottom: 25px;
@@ -1960,8 +1914,6 @@ textarea.form-input::-webkit-resizer {
     -webkit-line-clamp: 2;
   }
 
-  /* testimonials modal */
-
   .modal-container {
     padding: 20px;
   }
@@ -1996,8 +1948,6 @@ textarea.form-input::-webkit-resizer {
     width: 35px;
   }
 
-  /* clients */
-
   .clients-list {
     gap: 10px;
     margin: 0 -30px;
@@ -2010,10 +1960,6 @@ textarea.form-input::-webkit-resizer {
   .clients-item {
     min-width: calc(33.33% - 35px);
   }
-
-  /**
-   * #RESUME
-   */
 
   .timeline-list {
     margin-left: 65px;
@@ -2036,10 +1982,6 @@ textarea.form-input::-webkit-resizer {
   
   
   
-  /**
-   * #PORTFOLIO, BLOG
-   */
-
   .project-img,
   .blog-banner-box {
     border-radius: 16px;
@@ -2052,10 +1994,6 @@ textarea.form-input::-webkit-resizer {
   .blog-content {
     padding: 25px;
   }
-
-  /**
-   * #CONTACT
-   */
 
   .mapbox {
     height: 380px;
@@ -2085,15 +2023,7 @@ textarea.form-input::-webkit-resizer {
   }
 }
 
-/**
- * responsive larger than 768px screen
- */
-
 @media (min-width: 768px) {
-  /**
-   * REUSED STYLE
-   */
-
   .sidebar,
   article {
     width: 700px;
@@ -2103,41 +2033,27 @@ textarea.form-input::-webkit-resizer {
     width: 100px;
   }
 
-  /**
-   * SIDEBAR
-   */
-
   .contacts-list {
     grid-template-columns: 1fr 1fr;
     gap: 30px 15px;
   }
 
-  /**
-   * NAVBAR
-   */
-
   .navbar-link {
     --fs-8: 15px;
   }
 
-  /**
-   * ABOUT
-   */
-
    .clients-item {
-    flex: 0 0 20%; /* Mengubah lebar item menjadi 20% */
+    flex: 0 0 20%;
     max-width: 20%;
-    padding: 2px; /* Mengurangi padding item menjadi 2px */
+    padding: 2px;
     scroll-snap-align: center;
   }
   
 
   .clients-item svg {
-    width: 60px; /* Mengurangi ukuran ikon menjadi 40px */
+    width: 60px;
     height: 60px;
   }
-
-  /* testimonials modal */
 
   .testimonials-modal {
     gap: 35px;
@@ -2147,10 +2063,6 @@ textarea.form-input::-webkit-resizer {
   .modal-avatar-box img {
     width: 80px;
   }
-
-  /**
-   * PORTFOLIO
-   */
 
   .article-title {
     padding-bottom: 20px;
@@ -2183,16 +2095,10 @@ textarea.form-input::-webkit-resizer {
     color: var(--orange-yellow-crayola);
   }
 
-  /* portfolio and blog grid */
-
   .project-list,
   .blog-posts-list {
     grid-template-columns: 1fr 1fr;
   }
-
-  /**
-   * CONTACT
-   */
 
   .input-wrapper {
     grid-template-columns: 1fr 1fr;
@@ -2204,34 +2110,18 @@ textarea.form-input::-webkit-resizer {
   }
 }
 
-/**
- * responsive larger than 1024px screen
- */
-
 @media (min-width: 1024px) {
   :root {
-    /**
-    * shadow
-    */
-
     --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.125);
     --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.125);
     --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.125);
   }
-
-  /**
-   * REUSED STYLE
-   */
 
   .sidebar,
   article {
     width: 950px;
     box-shadow: var(--shadow-5);
   }
-
-  /**
-   * MAIN 
-   */
 
   main {
     margin-bottom: 60px;
@@ -2242,10 +2132,6 @@ textarea.form-input::-webkit-resizer {
     width: max-content;
     margin: auto;
   }
-
-  /**
-   * NAVBAR
-   */
 
    .navbar {
     position: absolute;
@@ -2267,31 +2153,21 @@ textarea.form-input::-webkit-resizer {
 
   .navbar-link {
     font-weight: var(--fw-500);
-    flex-direction: row;  // mengubah agar menjadi hosrizontal flex-row
+    flex-direction: row;
   }
 
   .navbar-link i {
     margin-right: 8px;
   }
 
-  /**
-   * ABOUT
-   */
-
-  /* service */
-
   .service-list {
     grid-template-columns: 1fr 1fr;
     gap: 20px 25px;
   }
 
-  /* testimonials */
-
   .testimonials-item {
     min-width: calc(50% - 15px);
   }
-
-  /* clients */
 
   .clients-list {
     display: flex;
@@ -2300,20 +2176,15 @@ textarea.form-input::-webkit-resizer {
   }
 
   .clients-item {
-    flex: 1; /* Memberi item fleksibilitas untuk tumbuh dan menyusut */
-    /* max-width: 20%; */
+    flex: 1;
     max-width: calc(25% - 16px);
-    margin: 0 8px; /* Menjaga jarak antar item */
+    margin: 0 8px;
   }
 
 
   /**
 
 }
-
-/**
- * responsive larger than 1250px screen
- */
 
 @media (min-width: 1250px) {
   /**
