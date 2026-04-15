@@ -1476,7 +1476,7 @@ main {
 
 .mapbox {
   position: relative;
-  height: 100px;
+  height: 380px;
   width: 100%;
   border-radius: 16px;
   margin-bottom: 30px;
@@ -1486,6 +1486,11 @@ main {
 
 .mapbox figure {
   height: 100%;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
 }
 
 .mapbox iframe {
