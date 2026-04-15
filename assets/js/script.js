@@ -32,6 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				link.classList.add("active");
 			}
 		});
+
+		// Memuat peta jika di halaman kontak
+		if (hash === "contact") {
+			loadMap();
+		}
 	}
 
 	// Menangani perubahan hash
@@ -189,39 +194,31 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 
 /*==========================*\
-    #Halaman Project Saya
+    #Halaman Kontak (Peta)
 \*==========================*/
-// Fungsi untuk memuat peta secara lazy loading
-function lazyLoadMap() {
+// Fungsi untuk memuat peta
+function loadMap() {
 	const mapContainer = document.getElementById("map-container");
+	if (!mapContainer || mapContainer.querySelector("iframe")) return; // Jangan muat ulang jika sudah ada
+
 	const mapIframe = document.createElement("iframe");
-	mapIframe.src =
-		"https://www.google.com/maps?q=Bayung+Lencir+South+Sumatra&output=embed";
-	mapIframe.width = "400";
-	mapIframe.height = "300";
+	mapIframe.src = "https://www.google.com/maps?q=Bayung+Lencir+South+Sumatra&output=embed";
+	mapIframe.width = "100%";
+	mapIframe.height = "100%";
+	mapIframe.style.border = "0";
 	mapIframe.loading = "lazy";
+	mapIframe.title = "Google Maps";
+	
 	mapContainer.appendChild(mapIframe);
 }
 
-// Mendeteksi ketika kontainer peta terlihat di viewport
-function isMapVisible() {
-	const mapContainer = document.getElementById("map-container");
-	const rect = mapContainer.getBoundingClientRect();
-	return (
-		rect.top >= 0 &&
-		rect.left >= 0 &&
-		rect.bottom <=
-			(window.innerHeight || document.documentElement.clientHeight) &&
-		rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-	);
-}
-
-// Memuat peta ketika kontainer terlihat di viewport
-window.addEventListener("scroll", () => {
-	if (isMapVisible()) {
-		lazyLoadMap();
-		window.removeEventListener("scroll", arguments.callee);
-	}
+// Tambahkan listener untuk klik pada menu navigasi (jika belum sinkron dengan hash)
+document.querySelectorAll("[data-nav-link]").forEach(link => {
+    link.addEventListener("click", function() {
+        if (this.textContent.toLowerCase().includes("contact")) {
+            setTimeout(loadMap, 100); // Beri sedikit delay agar transisi selesai
+        }
+    });
 });
 /*==========================*\
     #End Halaman Project
